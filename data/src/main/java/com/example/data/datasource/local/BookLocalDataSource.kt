@@ -12,7 +12,7 @@ class BookLocalDataSource @Inject constructor(
 
     fun getFavoriteBookListDescending(keyword: String, start: Int, end: Int): Flow<List<Book>> = bookDao.getFavoriteBookListDescending(keyword = keyword, start = start, end = end)
 
-    suspend fun getAllFavoriteBookListTitles(): List<String> = bookDao.getAllFavoriteBookListTitles()
+    suspend fun getAllFavoriteBookListIds(): List<String> = bookDao.getAllFavoriteBookListIds()
 
     suspend fun addFavoriteBook(book: Book): Long = bookDao.addFavoriteBook(book)
 

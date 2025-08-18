@@ -13,7 +13,7 @@ class SearchBookUseCase @Inject constructor(
         page: Int,
         pageSize: Int
     ): BookListEntity {
-        val favoriteTitles = bookRepository.getAllFavoriteBookListTitles()
+        val favoriteIds = bookRepository.getAllFavoriteBookListIds()
         val result = bookRepository.searchBook(
             keyword = keyword,
             sort = sort,
@@ -25,7 +25,7 @@ class SearchBookUseCase @Inject constructor(
             isEnd = result.isEnd,
             bookList = result.bookList.map { entity ->
                 entity.copy(
-                    isFavorite = favoriteTitles.contains(entity.title)
+                    isFavorite = favoriteIds.contains(entity.id)
                 )
             }
         )

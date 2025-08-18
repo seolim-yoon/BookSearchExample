@@ -21,8 +21,8 @@ interface BookDao {
             "ORDER BY title DESC")
     fun getFavoriteBookListDescending(keyword: String, start: Int, end: Int): Flow<List<Book>>
 
-    @Query("SELECT title FROM Book")
-    suspend fun getAllFavoriteBookListTitles(): List<String>
+    @Query("SELECT book_id FROM Book")
+    suspend fun getAllFavoriteBookListIds(): List<String>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun addFavoriteBook(book: Book): Long

@@ -24,7 +24,7 @@ interface BookRepository {
         end: Int
     ): Flow<List<BookEntity>>
 
-    suspend fun getAllFavoriteBookListTitles(): List<String>
+    suspend fun getAllFavoriteBookListIds(): List<String>
 
     suspend fun addFavoriteBook(book: BookEntity): Long
 

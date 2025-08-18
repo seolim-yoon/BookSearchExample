@@ -55,8 +55,8 @@ class BookRepositoryImpl @Inject constructor(
             bookEntityMapper.mapToBookEntityList(it)
         }
 
-    override suspend fun getAllFavoriteBookListTitles(): List<String> =
-        bookLocalDataSource.getAllFavoriteBookListTitles()
+    override suspend fun getAllFavoriteBookListIds(): List<String> =
+        bookLocalDataSource.getAllFavoriteBookListIds()
 
     override suspend fun addFavoriteBook(book: BookEntity): Long =
         bookLocalDataSource.addFavoriteBook(bookEntityMapper.mapToBook(book))
