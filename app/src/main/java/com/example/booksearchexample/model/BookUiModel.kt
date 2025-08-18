@@ -8,6 +8,7 @@ import kotlinx.serialization.Serializable
 @Parcelize
 data class BookUiModel(
     val id: String = "",
+    val key: String = "",
     val title: String = "",
     val thumbnail: String = "",
     val authors: String = "",

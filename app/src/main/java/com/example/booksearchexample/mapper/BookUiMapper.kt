@@ -7,10 +7,11 @@ import com.example.domain.entity.BookListEntity
 import javax.inject.Inject
 
 class BookUiMapper @Inject constructor() {
-    fun mapToBookUiModelList(bookListEntity: BookListEntity): List<BookUiModel> =
-        bookListEntity.bookList.map { book ->
+    fun mapToBookUiModelList(bookListEntity: BookListEntity, currentPage: Int): List<BookUiModel> =
+        bookListEntity.bookList.mapIndexed { index, book ->
             BookUiModel(
                 id = book.id,
+                key = "${currentPage}_${index}_${book.id}",
                 title = book.title,
                 thumbnail = book.thumbnail,
                 authors = book.authors,
@@ -26,6 +27,7 @@ class BookUiMapper @Inject constructor() {
     fun mapToBookUiModel(book: BookEntity): BookUiModel =
         BookUiModel(
             id = book.id,
+            key = book.id,
             title = book.title,
             thumbnail = book.thumbnail,
             authors = book.authors,

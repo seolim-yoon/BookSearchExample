@@ -53,6 +53,7 @@ private val favoriteCase = BookUiModel(
 val PreviewBookList = List(5) { index ->
     BookUiModel(
         id = index.toString(),
+        key = index.toString(),
         title = "타이틀 입니다.",
         thumbnail = "https://www.asdfasdfasdfasasdfasdffasdfasdfasdfasasdfasdff.com",
         authors = "저자",
