@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">BookSearchExample</string>
+    <string name="authors">저자 : %s</string>
+    <string name="publisher">출판사 : %s</string>
+    <string name="datetime">출간일 : %s</string>
+    <string name="price">정상가 : %,d</string>
+    <string name="sale_price">할인가 : %,d</string>
+    <string name="content">책 소개</string>
+    <string name="price_won">%,d원</string>
+    <string name="search_place_holder">제목 또는 저자를 입력하세요.</string>
+    <string name="refresh">새로고침</string>
+    <string name="search">검색</string>
+    <string name="favorite">즐겨찾기</string>
+    <string name="empty_msg">결과가 없습니다.</string>
+    <string name="filter">필터</string>
+    <string name="sort">정렬</string>
+</resources>
