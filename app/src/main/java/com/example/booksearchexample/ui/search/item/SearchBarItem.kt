@@ -1,6 +1,5 @@
 package com.example.booksearchexample.ui.search.item
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
@@ -15,11 +14,12 @@ import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.Search
+import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
@@ -45,9 +45,9 @@ internal fun SearchBarItem(
         onValueChange = onValueChange,
         singleLine = true,
         textStyle = TextStyle(
-            color = Color.Black,
             fontSize = 16.sp,
-            fontWeight = FontWeight.Normal
+            fontWeight = FontWeight.Normal,
+            color = MaterialTheme.colorScheme.onBackground
         ),
         decorationBox = { innerTextField ->
             Row(
@@ -55,12 +55,12 @@ internal fun SearchBarItem(
                 modifier = Modifier
                     .fillMaxWidth()
                     .background(
-                        color = Color.LightGray,
+                        color = MaterialTheme.colorScheme.secondaryContainer,
                         shape = RoundedCornerShape(24.dp)
                     )
                     .padding(vertical = 15.dp)
             ) {
-                Image(
+                Icon(
                     imageVector = Icons.Default.Search,
                     contentDescription = null,
                     modifier = Modifier.padding(start = 20.dp, end = 10.dp)
@@ -71,15 +71,14 @@ internal fun SearchBarItem(
                 ) {
                     if (inputText.isEmpty()) {
                         Text(
-                            text = stringResource(R.string.search_place_holder),
-                            color = Color.Black
+                            text = stringResource(R.string.search_place_holder)
                         )
                     }
                     innerTextField()
                 }
 
                 if (inputText.isNotBlank()) {
-                    Image(
+                    Icon(
                         imageVector = Icons.Default.Close,
                         contentDescription = null,
                         modifier = Modifier

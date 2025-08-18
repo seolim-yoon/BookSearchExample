@@ -34,7 +34,6 @@ internal fun SortAndFilterBottomSheet(
     val bottomState = rememberModalBottomSheetState()
 
     ModalBottomSheet(
-        containerColor = Color.White,
         sheetState = bottomState,
         onDismissRequest = onDismissRequest
     ) {

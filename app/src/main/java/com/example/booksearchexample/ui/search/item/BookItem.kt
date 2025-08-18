@@ -14,12 +14,14 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.FavoriteBorder
+import androidx.compose.material3.LocalContentColor
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
@@ -43,17 +45,20 @@ internal fun BookItem(
             .height(130.dp)
             .background(
                 shape = RoundedCornerShape(12.dp),
-                color = Color.White
-            ).clip(
+                color = MaterialTheme.colorScheme.secondaryContainer
+            )
+            .clip(
                 shape = RoundedCornerShape(12.dp)
-            ).clickable {
+            )
+            .clickable {
                 onClickBookItem()
             }
             .padding(5.dp)
     ) {
         AsyncImageItem(
             imageUrl = book.thumbnail,
-            modifier = Modifier.fillMaxWidth(0.25f)
+            modifier = Modifier
+                .fillMaxWidth(0.25f)
                 .padding(5.dp)
                 .clip(
                     shape = RoundedCornerShape(12.dp)
@@ -62,10 +67,11 @@ internal fun BookItem(
 
         Column(
             verticalArrangement = Arrangement.SpaceBetween,
-            modifier = Modifier.fillMaxSize()
+            modifier = Modifier
+                .fillMaxSize()
                 .padding(start = 10.dp)
         ) {
-            Row{
+            Row {
                 Column(
                     verticalArrangement = Arrangement.spacedBy(4.dp),
                     modifier = Modifier.weight(1f)
@@ -93,10 +99,12 @@ internal fun BookItem(
                     )
                 }
 
-                val vector = if (book.isFavorite) Icons.Default.Favorite else Icons.Default.FavoriteBorder
+                val vector =
+                    if (book.isFavorite) Icons.Default.Favorite else Icons.Default.FavoriteBorder
                 Image(
                     imageVector = vector,
                     contentDescription = null,
+                    colorFilter = ColorFilter.tint(LocalContentColor.current),
                     modifier = Modifier
                         .clickable {
                             onClickFavorite()
@@ -109,7 +117,8 @@ internal fun BookItem(
                 text = stringResource(R.string.price_won, book.price),
                 style = MaterialTheme.typography.bodySmall,
                 textAlign = TextAlign.End,
-                modifier = Modifier.fillMaxWidth()
+                modifier = Modifier
+                    .fillMaxWidth()
                     .padding(5.dp)
             )
         }
