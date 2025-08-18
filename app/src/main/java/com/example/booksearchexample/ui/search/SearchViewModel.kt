@@ -72,13 +72,7 @@ class SearchViewModel @Inject constructor(
                     copy(
                         loadState = if (result.isEnd) LoadState.Complete else LoadState.Success,
                         bookList = bookList.toMutableList().apply {
-                            addAll(
-                                bookUiMapper.mapToBookUiModelList(
-                                    result,
-                                    searchRequest.currentPage,
-                                    searchRequest.inputKeyword
-                                )
-                            )
+                            addAll(bookUiMapper.mapToBookUiModelList(result))
                         }
                     )
                 }

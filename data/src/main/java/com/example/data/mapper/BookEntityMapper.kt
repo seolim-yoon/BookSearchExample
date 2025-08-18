@@ -16,9 +16,10 @@ class BookEntityMapper @Inject constructor() {
     private fun mapDTOToBookEntityList(bookList: List<BookDTO.Document>): List<BookEntity> =
         bookList.map { book ->
             BookEntity(
+                id = book.isbn,
                 title = book.title,
                 thumbnail = book.thumbnail,
-                authors = book.authors.joinToString(","),
+                authors = book.authors.joinToString(", "),
                 publisher = book.publisher,
                 datetime = book.datetime,
                 price = book.price,

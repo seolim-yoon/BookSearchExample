@@ -42,9 +42,7 @@ internal fun TopAppBarItem(
         },
         navigationIcon = {
             if (isVisibleImage) {
-                IconButton(
-                    onClick = onClickBackNav
-                ) {
+                IconButton(onClick = onClickBackNav) {
                     Icon(
                         imageVector = Icons.AutoMirrored.Filled.KeyboardArrowLeft,
                         contentDescription = null,
@@ -55,13 +53,12 @@ internal fun TopAppBarItem(
         },
         actions = {
             if (isVisibleImage) {
-                Icon(
-                    imageVector = if (isFavorite) Icons.Default.Favorite else Icons.Default.FavoriteBorder,
-                    contentDescription = null,
-                    modifier = Modifier.clickable {
-                        onClickFavoriteBtn()
-                    }
-                )
+                IconButton(onClick = onClickFavoriteBtn) {
+                    Icon(
+                        imageVector = if (isFavorite) Icons.Filled.Favorite else Icons.Filled.FavoriteBorder,
+                        contentDescription = null
+                    )
+                }
             }
         },
         modifier = Modifier.padding(horizontal = 15.dp)
